@@ -7,6 +7,7 @@ class Player{
 		int height;
 		int goals;
 		int assists;
+		string club;
 		void info();
 };
 
@@ -22,18 +23,31 @@ class Club{
 	public:
 		string name;
 		int founded;
+		void info();
 };
 
+void Club::info(){
+	cout << "Nazwa klubu: " << name << endl;
+	cout << "Rok założenia: " << founded << endl;
+}
+
 int main() {
+	
+	
+	Club barcelona;
+	
+	barcelona.name = "FC Barcelona";
+	barcelona.founded = 1899;
+	
 	Player lewandowski;
+	
 	lewandowski.age = 32;
 	lewandowski.name = "Robert";
 	lewandowski.height = 185;
 	lewandowski.goals = 264;
 	lewandowski.assists = 54;
+	lewandowski.club = "FC Barcelona;
 	lewandowski.info();
-	Club barcelona;
-	barcelona.name = "FC Barcelona";
-	barcelona.founded = 1899;
+
 	return 0;
 }
