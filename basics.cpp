@@ -1,53 +1,41 @@
 #include <iostream>
 using namespace std;
-class Player{
-	public:
-		int age;
-		string name;
-		int height;
-		int goals;
-		int assists;
-		string club;
-		void info();
-};
 
-void Player::info(){
-	cout << "Imię: " << name << endl;
-	cout << "Wiek: " << age << endl;
-	cout << "Wzrost: " << height << endl;
-	cout << "Gole: " << goals << endl;
-	cout << "Asysty: " << assists << endl;
-}
-		 
 class Club{
 	public:
-		string name;
-		int founded;
-		void info();
+	string name;
+	int founded;
+	//constructor
+        Club(string name_, int founded_):
+        name{name_},
+        founded{founded_}{}
+	void info();
 };
 
-void Club::info(){
-	cout << "Nazwa klubu: " << name << endl;
-	cout << "Rok założenia: " << founded << endl;
+class Player{
+	public:
+	int age,height,goals;
+        string name, surname;
+        Club club;
+        //constructor
+        Player(int age_, int height_, int goals_, string name_, string surname_, Club club_):
+            age{age_},
+            height{height_},
+            goals{goals_},
+            name{name_},
+            surname{surname_},
+            club{club_}
+            {}
+        void info();
+};
+
+void info(Player player){
+    cout << player.name << " " << player.surname << " plays in " << player.club.name << " which was founded in " << player.club.founded <<endl;
 }
+int main(){
 
-int main() {
-	
-	
-	Club barcelona;
-	
-	barcelona.name = "FC Barcelona";
-	barcelona.founded = 1899;
-	
-	Player lewandowski;
-	
-	lewandowski.age = 32;
-	lewandowski.name = "Robert";
-	lewandowski.height = 185;
-	lewandowski.goals = 264;
-	lewandowski.assists = 54;
-	lewandowski.club = "FC Barcelona;
-	lewandowski.info();
-
+    Club barcelona("FC Barcelona",1899);
+    Player lewandowski(34,185,401,"Robert","Lewandowski",barcelona);
+    info(lewandowski);
 	return 0;
 }
