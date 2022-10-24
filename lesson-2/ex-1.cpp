@@ -1,5 +1,6 @@
 #include <iostream>
 
+//Task 1
 class Headphones{
 	private:
 		std::string name;
@@ -14,7 +15,7 @@ class Headphones{
 		void info(){std::cout<<name<<" "<<price<<std::endl;} //to do: fix;
 		
 };
-
+//Task 2
 class Sharpie{
 	private:
 		std::string nick;
@@ -23,15 +24,23 @@ class Sharpie{
 	public:
 	    Sharpie(){this->nick="";this->quality=0.0f;}
 	    Sharpie(std::string nick){this->nick=nick;this->quality=0.0f;}
-	    Sharpie(int quality){this->nick="";}
+	    Sharpie(int quality){this->nick="";this->quality=float(quality);}
+	    Sharpie(float quality){this->nick="";this->quality=quality;}
 	    Sharpie(std::string nick_, float quality_):nick{nick_},quality{quality_}{}
 	    Sharpie(std::string nick_, int quality_):nick{nick_},quality{float(quality_)}{}
-	    void info(){std::cout<<nick<<" "<<quality<<std::endl;}
+	    void info(){std::cout<<nick<<" "<<quality<<std::endl;} //to do: fix;
+	    bool stoleHeadphones(){if (quality>5.0f){return 1;}else{return 0;}}
+	    bool isSuspicious(){if (quality<10.0f){return 1;}else{return 0;}}
+	    
 };
 int main(){
-	Headphones jbl(430);
+	//Task 1
+	Headphones jbl("jbl",430);
 	jbl.info();
-	Sharpie rozpruwacz();
+	//Task 2
+	Sharpie rozpruwacz("kuba",5.4f);
 	rozpruwacz.info();
+	std::cout<<rozpruwacz.stoleHeadphones()<<std::endl;
+	std::cout<<rozpruwacz.isSuspicious()<<std::endl;
     return 0;
 }
