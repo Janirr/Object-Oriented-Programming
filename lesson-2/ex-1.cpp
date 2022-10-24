@@ -30,7 +30,7 @@ class Sharpie{
 		Sharpie(std::string nick_, int quality_):nick{nick_},quality{float(quality_)}{}
 		void info(){std::cout<<nick<<" "<<quality<<std::endl;} //to do: fix;
 		bool stoleHeadphones(){if (quality>5.0f){return 1;}else{return 0;}}
-		bool isSuspicious(){if (quality<10.0f){return 1;}else{return 0;}}
+		bool isSuspicious(){if (quality>7.0f){return 1;}else{return 0;}}
 	    
 };
 int main(){
