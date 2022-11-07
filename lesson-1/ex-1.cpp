@@ -1,38 +1,30 @@
 #include <iostream>
-using namespace std;
 
-class Club{
+class Developer{
 	public:
-		string name;
+		std::string name;
 		int founded;
-		//constructor
-        	Club(string name_, int founded_):
-                	name{name_},
-                	founded{founded_}{}
-		void info();
+		Developer(){this->name=name;this->founded=founded;}
+		Developer(std::string name_, int founded_):name{name_},founded{founded_}{}
 };
 
-class Player{
+class Game{
+	private:
+		std::string name;
+		float priceUSD;
+		Developer &developer; //private access to the class
+		int players;
 	public:
-	    int age,height,goals;
-        	string name, surname;
-        	Club& club;
-        	//constructor
-        	Player(int age_, int height_, int goals_, string name_, string surname_, Club& club_):
-            		age{age_},
-            		height{height_},
-		    	goals{goals_},
-		    	name{name_},
-		    	surname{surname_},
-		    	club{club_}{}
-	
-        	void info(){
-            		cout << name << " " << surname << " plays in " << club.name << " which was founded in " << club.founded << endl;
-            		};
+		//Game(){}
+		Game(std::string name_,float priceUSD_,Developer &developer_,int players_):name{name_},priceUSD{priceUSD_},developer{developer_},players{players_}{}
+		void info(){std::cout<<"Name: "<<name<<" | Price: "<<priceUSD<<" $ | Players: "<<players<<std::endl;}
+		void devinfo(){std::cout<<"Developer: "<<developer.name<<" founded in: "<<developer.founded;}
 };
+
 int main(){
-    Club barcelona("FC Barcelona",1899);
-    Player lewandowski(34,185,401,"Robert","Lewandowski",barcelona);
-    lewandowski.info();
+	Developer EA("EA SPORTS",1982);
+	Game fifa21("FIFA 21",49.99f,EA,986);
+	fifa21.info();
+	fifa21.devinfo();
     return 0;
 }
