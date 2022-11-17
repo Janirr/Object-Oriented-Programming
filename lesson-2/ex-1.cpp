@@ -28,9 +28,10 @@ class Sharpie{
 		Sharpie(float quality){this->nick="";this->quality=quality;}
 		Sharpie(std::string nick_, float quality_):nick{nick_},quality{quality_}{}
 		Sharpie(std::string nick_, int quality_):nick{nick_},quality{float(quality_)}{}
-		void info(){std::cout<<nick<<" "<<quality<<std::endl;} //to do: fix;
-		bool stoleHeadphones(){if (quality>5.0f){return 1;}else{return 0;}}
-		bool isSuspicious(){if (quality>7.0f){return 1;}else{return 0;}}
+		void info(){std::cout<<nick<<" "<<quality<<std::endl;}
+		void gotCaught(){quality=0.0f;}
+		void stoleItem(float value){quality = quality + value;}
+		bool isGood(){if (quality>7.0f){return 1;}else{return 0;}}
 	    
 };
 int main(){
@@ -40,7 +41,8 @@ int main(){
 	//Task 2
 	Sharpie rozpruwacz("kuba",5.4f);
 	rozpruwacz.info();
-	std::cout<<rozpruwacz.stoleHeadphones()<<std::endl;
-	std::cout<<rozpruwacz.isSuspicious()<<std::endl;
+	rozpruwacz.gotCaught();
+	rozpruwacz.stoleItem(3.0f);
+	rozpruwacz.info();
     return 0;
 }
