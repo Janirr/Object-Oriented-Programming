@@ -2,59 +2,49 @@
 #include <vector>
 #include<bits/stdc++.h>
 using namespace std;
-class Patient{
+class Person{
 public:
-    std::string name;
     int id;
+    string name;
+    Person(string name, int id){this->name=name;this->id=id;}
+};
+class Patient : public Person{
+public:
     string p_disease;
     //Constructors
-    Patient(string name,int id,string p_disease){this->name=name;this->id=id;this->p_disease=p_disease;}
+    Patient(std::string name,int id,string p_disease) : Person(name, id) {this->p_disease=p_disease;}
     ~Patient()=default;
 };
-void addPatient(vector <Patient> &patient){
-    string p_name; string name; string surname; int p_age; string p_disease;
+void addPatient(std::vector <Patient> &patient){
+    string p_name; string name; string surname; int id; string p_disease;
     cout << "Name: "; cin >> name;
     cout << "Surname: "; cin >> surname;
     p_name = name + " " + surname;
-    cout << "Age: "; cin >> p_age;
+    cout << "PESEL: "; cin >> id;
     cout << "Disease: "; cin >> p_disease;
-    Patient p1(p_name,p_age,p_disease);
+    Patient p1(p_name,id,p_disease);
     patient.push_back(p1);
 }
-void removePatient(vector <Patient> &patients){
+void removePatient(std::vector <Patient> &patients){
     int number;
     for(int i=0;i<patients.size();i++) {
         cout << i << ": " << patients[i].name << endl;
     }
     cout << "-----------" <<endl;
     cout << "Remove patient with number: "; cin >> number;cout<<endl;
-    try{
-        if (number >=0){
-            if (number<patients.size()){
-                cout << "Succesully removed " << patients[number].name << endl;
-                patients.erase(patients.begin()+number);
-            }
-            else {
-                throw (number);
-            }
-        }
-        else {
-            throw (number);
-        }
-
+    try {
+        patients.erase(patients.begin() + number);
     }
     catch(int number){
         cout << "You typed: "<<number<<". Nothing happened."<<endl;
     }
 }
-class Doctor{
+class Doctor : public Person{
 public:
-    std::string name;
-    int id;
     //Constructors
-    Doctor(string name_,int id_):name{name_},id{id_}{}
+    Doctor(std::string name,int id) : Person(name,id){};
 };
-void addDoctor(vector <Doctor> &doctors){
+void addDoctor(std::vector <Doctor> &doctors){
     string d_name; string name; string surname; int p_id; string p_disease;
     cout << "Name: "; cin >> name;
     cout << "Surname: "; cin >> surname;
@@ -63,7 +53,7 @@ void addDoctor(vector <Doctor> &doctors){
     Doctor d1(d_name,p_id);
     doctors.push_back(d1);
 }
-void removeDoctor(vector <Doctor> &doctors){
+void removeDoctor(std::vector <Doctor> &doctors){
     int number;
     for(int i=0;i<doctors.size();i++) {
         cout << i << ": " << doctors[i].name << endl;
@@ -71,19 +61,8 @@ void removeDoctor(vector <Doctor> &doctors){
     cout << "-----------" <<endl;
     cout << "Remove doctor with number: "; cin >> number;cout<<endl;
     try{
-        if (number >=0){
-            if (number<doctors.size()){
-                cout << "Succesully removed " << doctors[number].name <<endl;
-                doctors.erase(doctors.begin()+number);
-            }
-            else {
-                throw (number);
-            }
-        }
-        else {
-            throw (number);
-        }
-
+        cout << "Succesully removed " << doctors[number].name <<endl;
+        doctors.erase(doctors.begin()+number);
     }
     catch(int number){
         cout << "You typed: "<<number<<". Nothing happened."<<endl;
@@ -92,12 +71,12 @@ void removeDoctor(vector <Doctor> &doctors){
 class Ward{
     private:
     int capacity;
-    string h_name;
+    std::string h_name;
     vector <Doctor> doctors;
     vector <Patient> patients;
     public:
     //Constructors
-    Ward(int capacity_,string h_name_, vector <Doctor> &doctors_,vector <Patient> &patients_):capacity{capacity_},h_name{h_name_},doctors{doctors_},patients{patients_}{}
+    Ward(int capacity_,std::string h_name_, vector <Doctor> &doctors_,vector <Patient> &patients_):capacity{capacity_},h_name{h_name_},doctors{doctors_},patients{patients_}{}
     void info(){
         cout << "Ward name: "<< h_name << endl;
         cout << "Doctors: ";
@@ -126,13 +105,13 @@ int main(){
     vector <Patient> p_stomatology;
     vector <Doctor> d_stomatology;
     //Orthodontia
-    Patient p1("Konrad Manowski",01261102312,"Wisdom tooth extraction");
-    Patient p2("Andrzej Mostowiak",01123123121,"Dental caries");
+    Patient p1("Konrad Manowski", 01261102312, "Wisdom tooth extraction");
+    Patient p2("Andrzej Mostowiak", 01123123121, "Dental caries");
     p_orthodontia.push_back(p1);
     p_orthodontia.push_back(p2);
     //Physiotherapy
-    Patient p3("Steve Jobs",00212321322,"Anteversion");
-    Patient p4("Elon Musk",00212321322,"Scoliosis");
+    Patient p3("Steve Jobs", 00212321322, "Anteversion");
+    Patient p4("Elon Musk", 00212321322, "Scoliosis");
     p_physiotherapy.push_back(p3);
     p_physiotherapy.push_back(p4);
     //Doctors
@@ -156,6 +135,7 @@ int main(){
         {
             Ward orthodontia(35,"Orthodontia",d_orthodontia,p_orthodontia);
             Ward physiotherapy(26,"Physiotherapy",d_physiotherapy,p_physiotherapy);
+            Ward stomatology(26,"Stomatology",d_stomatology,p_stomatology);
             orthodontia.info();
             cout << endl;
             physiotherapy.info();
