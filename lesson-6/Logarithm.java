@@ -4,7 +4,7 @@ public class Logarithm implements Number {
     private final double argument;
 
     @Override
-    public void doubleValue() {
+    public double doubleValue() {
         try {
             if (argument <= 0 || argument == 1){
                 throw new ArithmeticException(String.format("Argument should be >0 and !=1. Provided value: "+argument));
@@ -12,7 +12,7 @@ public class Logarithm implements Number {
             if (base <= 0){
                 throw new ArithmeticException(String.format("Base should be > zero. Provided value: "+base));
             }
-            System.out.println(Math.log(argument)/Math.log(base));
+            return(Math.log(argument)/Math.log(base));
         } catch (Exception e) {
             throw new ArithmeticException("Error: "+e);
         }
