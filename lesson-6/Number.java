@@ -1,3 +1,3 @@
 interface Number {
-    public void doubleValue();
+    public double doubleValue();
 }
