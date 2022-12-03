@@ -10,8 +10,8 @@ class Number{
 };
 class Comparison{
 private:
-    int a;
-    int b;
+    float a;
+    float b;
 public:
 Comparison(int a, int b){this->a=a;this->b=b;}
   int max()
@@ -45,11 +45,14 @@ int main()
 {
     Number a(5);
     Number b(6);
-    Comparison c(5,7);
+
+    Comparison c(5,6)
+    cout << c.max() << endl;
+    cout << c.min() << endl;
+    cout << c.avg() << endl;
+
     Logarithm d(-5,-7);
     cout << d.doubleValue() << endl;
-  cout << c.max() << endl;
-  cout << c.min() << endl;
-  cout << c.avg() << endl;
-  return 0;
+    
+    return 0;
 }
