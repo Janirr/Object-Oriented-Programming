@@ -5,13 +5,13 @@ public class Letters {
     char b;
     Letters(char a, char b){this.a=a;this.b=b;}
     int scoreForShape(char c){
-        if (Objects.equals(c, 'x'))
+        if (Objects.equals(c, 'X'))
             return 1;
-        else if (Objects.equals(c, 'y'))
+        else if (Objects.equals(c, 'Y'))
             return 2;
-        else if (Objects.equals(c, 'z'))
+        else if (Objects.equals(c, 'Z'))
             return 3;
-        else{return 0;}
+        return 0;
     }
     int scoreForOutcome(char a, char b){
         if (a == 'A'){
@@ -26,9 +26,9 @@ public class Letters {
             if (b == 'X')
                 return 0;
             if (b == 'Y')
-                return 6;
-            if (b == 'Z')
                 return 3;
+            if (b == 'Z')
+                return 6;
         }
         if (a == 'C'){
             if (b == 'X')
