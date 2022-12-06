@@ -3,10 +3,9 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Day1 {
-
     public static void main(String[] args) {
         try {
-            Scanner scanner = new Scanner(new File("day1.txt"));
+            Scanner scanner = new Scanner(new File("Day01.txt"));
             int kcal = 0,max_kcal = 0,elf_nr = 0,elf_max = 0;
             while (scanner.hasNextLine()) {
                 String x = scanner.nextLine();
