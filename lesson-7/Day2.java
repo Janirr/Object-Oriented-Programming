@@ -6,16 +6,17 @@ public class Day2 {
 
     public static void main(String[] args) {
         try {
-            Scanner scanner = new Scanner(new File("day2.txt"));
-
+            Scanner scanner = new Scanner(new File("Java/Day02.txt"));
+            int sum = 0;
             while (scanner.hasNextLine()) {
-                String strArr[]= scanner.nextLine().split(" ");
-                String a = strArr[0];
-                String b = strArr[1];
+                String s = scanner.nextLine();
+                char a = s.charAt(0);
+                char b = s.charAt(2);
                 Letters l1 = new Letters(a,b);
-                l1.scoreForOutcome();
-                l1.scoreForShape();
+                sum+=l1.scoreForOutcome(a,b);
+                sum+=l1.scoreForShape(b);
             }
+            System.out.println(sum);
             scanner.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
