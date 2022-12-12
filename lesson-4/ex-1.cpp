@@ -2,11 +2,16 @@
 #include <string>
 #include <iomanip>
 using namespace std;
-class Hardware {
+class Animal {
   public:
-    virtual int watsNeeded();
+    virtual std::string type();
     
 };
+
+int Hardware::watsNeeded() {
+    return 0;
+}
+
 class Monitor : public Hardware {
   private:
     int quantity;

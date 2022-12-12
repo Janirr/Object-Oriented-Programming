@@ -15,11 +15,12 @@ public:
 };
 void addPatient(std::vector <Patient> &patient){
     string p_name; string name; string surname; int pesel; string p_disease;
-    cout << "Name: "; cin >> name;
-    cout << "Surname: "; cin >> surname;
+    cout << endl << "Name: "; cin >> name;
+    cout << endl << "Surname: "; cin >> surname;
     p_name = name + " " + surname;
-    cout << "PESEL: "; cin >> pesel;
-    cout << "Disease: "; cin >> p_disease;
+    cout << endl << "PESEL: "; cin >> pesel;
+    cout << endl << "Disease: "; cin >> p_disease;
+    std::getline(std::cin,p_disease);
     Patient p1(p_name,pesel,p_disease);
     patient.push_back(p1);
 }

@@ -3,6 +3,7 @@
 #include "Patient.h"
 #include "Doctor.h"
 #include "Ward.h"
+#include "Menu.h"
 using namespace std;
 
 
@@ -24,22 +25,25 @@ int main(){
     Patient p4("Elon Musk", 00212321322, "Scoliosis");
     p_physiotherapy.push_back(p3);
     p_physiotherapy.push_back(p4);
+    //Stomatology
+    Patient p5("Marek Mostowiak", 00212321312, "Tooth decay");
+    Patient p6("Karol Wojtkowiak", 00212321372, "Pulpitis");
+    p_stomatology.push_back(p5);
+    p_stomatology.push_back(p6);
     //Doctors
     Doctor d1("Katarzyna Wroclawska",0);
     Doctor d2("Malgorzata Bialostocka",1);
+    Doctor d3("Malgorzata Stomatolocka",2);
     d_orthodontia.push_back(d1);
     d_physiotherapy.push_back(d2);
+    d_stomatology.push_back(d3);
     //Wards
     //Interface
     int choice = 0;
-    while (choice != 5){
-        cout << "0: Full information about hospital" << endl;
-        cout << "1: Add patient" << endl;
-        cout << "2: Add doctor" << endl;
-        cout << "3: Remove patient" << endl;
-        cout << "4: Remove doctor" << endl;
-        cout << "5: Exit" << endl;
-        cin >> choice;
+    vector <string> mainOptions = {"Full information about hospital","Add patient","Add doctor","Remove patient","Remove doctor"};
+    Menu main(mainOptions);
+    while (choice != mainOptions.size()){
+        choice = main.display();
     switch(choice){
         case 0:
         {
@@ -47,23 +51,18 @@ int main(){
             Ward physiotherapy(26,"Physiotherapy",d_physiotherapy,p_physiotherapy);
             Ward stomatology(24,"Stomatology",d_stomatology,p_stomatology);
             orthodontia.info();
-            cout << endl;
             physiotherapy.info();
-            cout << endl;
             orthodontia.personel();
-            cout << endl;
             physiotherapy.personel();
-            cout << endl;
+            stomatology.info();
+            stomatology.personel();
             break;
         }
         case 1:
         {
-            cout << "0: Add patient to orthodontia" << endl;
-            cout << "1: Add patient to stomatology" << endl;
-            cout << "2: Add patient to physiotherapy" << endl;
-            cout << "3: Exit" << endl;
-            int choice_p_ward;
-            cin >> choice_p_ward;
+            vector <string> options = {"Add patient to orthodontia","Add patient to stomatology","Add patient to physiotherapy"};
+            Menu m1(options);
+            int choice_p_ward = m1.display();
             switch (choice_p_ward) {
                 case 0:
                     addPatient(p_orthodontia);
@@ -81,12 +80,9 @@ int main(){
         }
         case 2:
         {
-            cout << "0: Add doctor to orthodontia" << endl;
-            cout << "1: Add doctor to stomatology" << endl;
-            cout << "2: Add doctor to physiotherapy" << endl;
-            cout << "3: Exit" << endl;
-            int choice_d_ward;
-            cin >> choice_d_ward;
+            vector <string> options = {"Add doctor to orthodontia","Add doctor to stomatology","Add doctor to physiotherapy"};
+            Menu m2(options);
+            int choice_d_ward = m2.display();
             switch (choice_d_ward) {
                 case 0:
                     addDoctor(d_orthodontia);
@@ -104,13 +100,10 @@ int main(){
         }
         case 3:
         {
-            cout << "0: Remove patient from orthodontia" << endl;
-            cout << "1: Remove patient from stomatology" << endl;
-            cout << "2: Remove patient from physiotherapy" << endl;
-            cout << "3: Exit" << endl;
-            int choice_d_ward;
-            cin >> choice_d_ward;
-            switch (choice_d_ward) {
+            vector <string> options = {"Remove patient from orthodontia","Remove patient from stomatology","Remove patient from physiotherapy"};
+            Menu m3(options);
+            int choice_p_ward = m3.display();
+            switch (choice_p_ward) {
                 case 0:
                     removePatient(p_orthodontia);
                     break;
@@ -127,12 +120,9 @@ int main(){
         }
         case 4:
         {
-            cout << "0: Remove doctor from orthodontia" << endl;
-            cout << "1: Remove doctor from stomatology" << endl;
-            cout << "2: Remove doctor from physiotherapy" << endl;
-            cout << "3: Exit" << endl;
-            int choice_d_ward;
-            cin >> choice_d_ward;
+            vector <string> options = {"Remove doctor from orthodontia","Remove doctor from stomatology","Remove doctor from physiotherapy"};
+            Menu m4(options);
+            int choice_d_ward = m4.display();
             switch (choice_d_ward) {
                 case 0:
                     removeDoctor(d_orthodontia);
@@ -151,7 +141,6 @@ int main(){
         {
             break;
         }
-    }
-    }
+    }}
     return 0;
 }

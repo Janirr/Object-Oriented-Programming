@@ -30,7 +30,7 @@ public:
         for(Patient &p : patients){
             cout<<p.name<<", ";
         }
-        cout<<"\n";
+        cout<<endl<<endl;
     }
     void personel(){
         cout << "Doctors: " << doctors.size()<<endl;

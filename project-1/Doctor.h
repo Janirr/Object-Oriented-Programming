@@ -13,10 +13,10 @@ public:
 };
 void addDoctor(std::vector <Doctor> &doctors){
     string d_name; string name; string surname; int pesel;
-    cout << "Name: "; cin >> name;
-    cout << "Surname: "; cin >> surname;
+    cout << endl << "Name: "; cin >> name;
+    cout << endl << "Surname: "; cin >> surname;
     d_name = name + " " + surname;
-    cout << "PESEL: "; cin >> pesel;
+    cout << endl << "PESEL: "; cin >> pesel;
     Doctor d1(d_name,pesel);
     doctors.push_back(d1);
 }
