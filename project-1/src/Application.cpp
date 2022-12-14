@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
-#include "Patient.h"
-#include "Doctor.h"
-#include "Ward.h"
-#include "Menu.h"
+#include "../include/content/Person.h"
+#include "../src/content/Doctor.cpp"
+#include "../include/content/Patient.h"
+#include "../src/content/Patient.cpp"
+#include "../include/content/Ward.h"
+#include "../src/content/Ward.cpp"
+#include "../include/menu/Menu.h"
 using namespace std;
-
 
 int main(){
     //Vectors of patients and doctors

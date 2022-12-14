@@ -1,16 +1,8 @@
-//
-// Created by Janir on 08.12.2022.
-//
-#include "Person.h"
-#ifndef PROJECT_1_DOCTOR_H
-#define PROJECT_1_DOCTOR_H
+#include <iostream>
+#include <vector>
+#include <string>
+#include "../../include/content/Doctor.h"
 using namespace std;
-
-class Doctor : public Person{
-public:
-    //Constructors
-    Doctor(std::string name,int pesel) : Person(name,pesel){};
-};
 void addDoctor(std::vector <Doctor> &doctors){
     string d_name; string name; string surname; int pesel;
     cout << endl << "Name: "; cin >> name;
@@ -35,5 +27,3 @@ void removeDoctor(std::vector <Doctor> &doctors){
         cout << "You typed: "<<number<<". Nothing happened."<<endl;
     }
 }
-
-#endif //PROJECT_1_DOCTOR_H
