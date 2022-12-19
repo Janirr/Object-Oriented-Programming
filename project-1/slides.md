@@ -36,7 +36,7 @@ layout: section
 
 ```shell
 ├── include
-│   ├── content
+│   ├── hospital
 │   │   ├── Doctor.h
 │   │   ├── Patient.h
 │   │   ├── Person.h
@@ -45,7 +45,7 @@ layout: section
 │       └── Menu.h
 └── src
     ├── Application.cpp
-    └── content
+    └── hospital
         ├── Doctor.cpp
         ├── Patient.cpp
         ├── Person.cpp
