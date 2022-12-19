@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "../../include/content/Doctor.h"
+#include "../../include/hospital/Doctor.h"
 using namespace std;
 void addDoctor(std::vector <Doctor> &doctors){
     string d_name; string name; string surname; int pesel;
@@ -20,10 +20,14 @@ void removeDoctor(std::vector <Doctor> &doctors){
     cout << "-----------" <<endl;
     cout << "Remove doctor with number: "; cin >> number;cout<<endl;
     try{
-        cout << "Succesfully removed " << doctors[number].name <<endl;
-        doctors.erase(doctors.begin()+number);
+        if ((number >= 0) && (number <doctors.size())){
+          doctors.erase(doctors.begin()+number);
+          cout << "Succesfully removed " << doctors[number].name <<endl;
+        } else {
+        throw number;
+        }
     }
     catch(int number){
-        cout << "You typed: "<<number<<". Nothing happened."<<endl;
+        cerr << "You typed " << number << ". Nothing happened.\n";
     }
 }

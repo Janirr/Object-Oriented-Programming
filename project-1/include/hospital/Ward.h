@@ -20,8 +20,8 @@ private:
 public:
     //Constructors
     Ward(int capacity_,std::string h_name_, vector <Doctor> &doctors_,vector <Patient> &patients_):capacity{capacity_},h_name{h_name_},doctors{doctors_},patients{patients_}{}
-    void info();
-    void personel();
+    void displayInformation();
+    void displayPersonnel();
 };
 
 

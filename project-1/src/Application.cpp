@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include "../include/content/Person.h"
-#include "../src/content/Doctor.cpp"
-#include "../include/content/Patient.h"
-#include "../src/content/Patient.cpp"
-#include "../include/content/Ward.h"
-#include "../src/content/Ward.cpp"
+#include "../include/hospital/Person.h"
+#include "../src/hospital/Doctor.cpp"
+#include "../include/hospital/Patient.h"
+#include "../src/hospital/Patient.cpp"
+#include "../include/hospital/Ward.h"
+#include "../src/hospital/Ward.cpp"
 #include "../include/menu/Menu.h"
 using namespace std;
 
@@ -52,12 +52,12 @@ int main(){
             Ward orthodontia(35,"Orthodontia",d_orthodontia,p_orthodontia);
             Ward physiotherapy(26,"Physiotherapy",d_physiotherapy,p_physiotherapy);
             Ward stomatology(24,"Stomatology",d_stomatology,p_stomatology);
-            orthodontia.info();
-            physiotherapy.info();
-            orthodontia.personel();
-            physiotherapy.personel();
-            stomatology.info();
-            stomatology.personel();
+            orthodontia.displayInformation();
+            physiotherapy.displayInformation();
+            orthodontia.displayPersonnel();
+            physiotherapy.displayPersonnel();
+            stomatology.displayInformation();
+            stomatology.displayPersonnel();
             break;
         }
         case 1:

@@ -17,10 +17,15 @@ void removePatient(std::vector <Patient> &patients){
     }
     cout << "-----------" <<endl;
     cout << "Remove patient with number: "; cin >> number;cout<<endl;
-    try {
-        patients.erase(patients.begin() + number);
+    try{
+        if ((number >= 0) && (number <patients.size())){
+          patients.erase(patients.begin()+number);
+          cout << "Succesfully removed " << patients[number].name <<endl;
+        } else {
+        throw number;
+        }
     }
     catch(int number){
-        cout << "You typed: "<<number<<". Nothing happened."<<endl;
+        cerr << "You typed " << number << ". Nothing happened.\n";
     }
 }

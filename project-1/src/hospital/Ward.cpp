@@ -1,5 +1,5 @@
 
-void Ward::info(){
+void Ward::displayInformation(){
         cout << "Ward name: "<< h_name << endl;
         cout << "Doctors: ";
         for(Doctor &d : doctors){
@@ -11,7 +11,7 @@ void Ward::info(){
         }
         cout<<endl<<endl;
     }
-void Ward::personel(){
+void Ward::displayPersonnel(){
         cout << "Doctors: " << doctors.size()<<endl;
         cout << "Patients: " << patients.size()<<endl;
         cout << h_name << " capacity: " << capacity << endl;
