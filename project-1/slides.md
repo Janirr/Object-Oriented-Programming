@@ -165,7 +165,7 @@ void removePatient(std::vector <Patient> &patients){
 
 # Function to display all the information
 ```cpp
-void info(){
+void displayInformation(){
     cout << "Ward name: "<< h_name << endl;
     cout << "Doctors: ";
     for(Doctor &d : doctors){
@@ -177,7 +177,7 @@ void info(){
     }
     cout<<endl<<endl;
 }
-void personel(){
+void displayPersonnel(){
     cout << "Doctors: " << doctors.size()<<endl;
     cout << "Patients: " << patients.size()<<endl;
     cout << h_name << " capacity: " << capacity << endl;
